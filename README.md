@@ -27,7 +27,6 @@ The following **optional** features are implemented:
 * [X] User can **click a link within a tweet body** on tweet details view. The click will launch the web browser with relevant page opened.
 * [X] User can **pull down to refresh tweets timeline**
 * [X] User can tap a tweet to **open a detailed tweet view**
-* [X] Improve the user interface and theme the app to feel "twitter branded"
 
 The following **bonus** features are implemented:
 
