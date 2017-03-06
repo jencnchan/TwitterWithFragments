@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="@dimen/profile_image_width"
+        android:layout_height="@dimen/profile_image_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/item_margin"
+        android:layout_marginRight="@dimen/item_margin"
+        android:layout_marginTop="@dimen/item_margin"
+        android:background="@color/colorWhite" />
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivProfile"
+        android:layout_marginRight="@dimen/item_margin"
+        android:layout_toEndOf="@+id/ivProfile"
+        android:layout_toRightOf="@+id/ivProfile"
+        android:text="TestUserName"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/tweet_name_text_size"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvScreenName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivProfile"
+        android:layout_toRightOf="@+id/tvUserName"
+        tools:text="\@TestUserId" />
+
+    <com.codepath.apps.mysimpletweets.LinkifiedTextView
+        android:id="@+id/tvBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvUserName"
+        android:layout_toRightOf="@+id/ivProfile"
+        android:autoLink="all"
+        android:textColor="@color/colorBlack"
+        tools:text="TestBody" />
+
+    <TextView
+        android:id="@+id/tvRelativeTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvScreenName"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="@dimen/item_margin"
+        android:layout_marginRight="@dimen/item_margin"
+        tools:text="time" />
+
+</RelativeLayout>
