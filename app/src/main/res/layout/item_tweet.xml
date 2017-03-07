@@ -32,14 +32,14 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tvScreenName"
+        android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/ivProfile"
         android:layout_toRightOf="@+id/tvUserName"
         tools:text="\@TestUserId" />
 
-    <com.codepath.apps.mysimpletweets.LinkifiedTextView
+    <com.codepath.apps.mysimpletweets.LinkifiedText
         android:id="@+id/tvBody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
         android:id="@+id/tvRelativeTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tvScreenName"
+        android:layout_alignBottom="@+id/tvName"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginEnd="@dimen/item_margin"

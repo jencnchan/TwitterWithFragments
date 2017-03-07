@@ -10,8 +10,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
-public class LinkifiedTextView extends TextView {
-    public LinkifiedTextView(Context context, AttributeSet attrs) {
+public class LinkifiedText extends TextView {
+
+    public LinkifiedText(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

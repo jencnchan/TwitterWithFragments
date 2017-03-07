@@ -34,16 +34,16 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
 
         ImageView ivProfileImage = (ImageView) convertView.findViewById(R.id.ivProfile);
         TextView tvUserName = (TextView) convertView.findViewById(R.id.tvUserName);
-        TextView tvScreenName = (TextView) convertView.findViewById(R.id.tvScreenName);
+        TextView tvName = (TextView) convertView.findViewById(R.id.tvName);
         TextView tvRelativeTime = (TextView) convertView.findViewById(R.id.tvRelativeTime);
-        com.codepath.apps.mysimpletweets.LinkifiedTextView tvBody = (com.codepath.apps.mysimpletweets.LinkifiedTextView) convertView.findViewById(R.id.tvBody);
+        com.codepath.apps.mysimpletweets.LinkifiedText tvBody = (com.codepath.apps.mysimpletweets.LinkifiedText) convertView.findViewById(R.id.tvBody);
 
         tvUserName.setText(tweet.getUser().getName());
         tvBody.setText(tweet.getBody());
         ivProfileImage.setImageResource(android.R.color.transparent);
         //Picasso.with(getContext()).load(tweet.getUser().getProfileImageUrl()).into(ivProfileImage);
         Glide.with(getContext()).load(tweet.getUser().getProfileImageUrl()).into(ivProfileImage);
-        tvScreenName.setText("@" + tweet.getUser().getScreenName());
+        tvName.setText("@" + tweet.getUser().getScreenName());
         tvRelativeTime.setText(getRelativeTimeAgo(tweet.getCreatedAt()));
 
         return convertView;
