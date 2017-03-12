@@ -12,6 +12,23 @@ public class User implements Parcelable {
     public String screenName;
     public String profileImageUrl;
 
+    private String tagline;
+    private int followersCount;
+    private int followingsCount;
+
+    public int getFollowersCount() {
+        return followersCount;
+    }
+
+    public String getTagline() {
+        return tagline;
+    }
+
+    public int getFriendCount() {
+        return followingsCount;
+    }
+
+
     public String getName() {
         return name;
     }
@@ -37,6 +54,9 @@ public class User implements Parcelable {
         uid = in.readLong();
         screenName = in.readString();
         profileImageUrl = in.readString();
+        tagline = in.readString();
+        followersCount = in.readInt();
+        followingsCount = in.readInt();
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -58,6 +78,9 @@ public class User implements Parcelable {
             u.uid = json.getLong("id");
             u.screenName = json.getString("screen_name");
             u.profileImageUrl = json.getString("profile_image_url");
+            u.tagline = json.getString("description");
+            u.followersCount = json.getInt("followers_count");
+            u.followingsCount = json.getInt("friends_counts");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -75,5 +98,8 @@ public class User implements Parcelable {
         parcel.writeLong(uid);
         parcel.writeString(screenName);
         parcel.writeString(profileImageUrl);
+        parcel.writeString(tagline);
+        parcel.writeInt(followersCount);
+        parcel.writeInt(followingsCount);
     }
 }

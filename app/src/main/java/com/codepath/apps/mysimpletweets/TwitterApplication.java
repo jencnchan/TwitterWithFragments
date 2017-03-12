@@ -14,7 +14,6 @@ import com.raizlabs.android.dbflow.config.FlowManager;
  *
  *     TwitterClient client = TwitterApplication.getRestClient();
  *     // use client to send requests to API
- *
  */
 public class TwitterApplication extends Application {
     private static Context context;
@@ -32,4 +31,5 @@ public class TwitterApplication extends Application {
     public static TwitterClient getRestClient() {
         return (TwitterClient) TwitterClient.getInstance(TwitterClient.class, TwitterApplication.context);
     }
+
 }

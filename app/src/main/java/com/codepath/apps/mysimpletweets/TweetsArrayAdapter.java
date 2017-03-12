@@ -1,8 +1,10 @@
 package com.codepath.apps.mysimpletweets;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.codepath.apps.mysimpletweets.models.ProfileActivity;
 import com.codepath.apps.mysimpletweets.models.Tweet;
+
+import org.parceler.Parcels;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,6 +24,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
+
     public TweetsArrayAdapter(Context context, List<Tweet> tweets) {
         super(context, 0, tweets);
     }
@@ -26,7 +32,7 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Tweet tweet = getItem(position);
+        final Tweet tweet = getItem(position);
 
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_tweet, parent, false);
@@ -45,6 +51,18 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
         Glide.with(getContext()).load(tweet.getUser().getProfileImageUrl()).into(ivProfileImage);
         tvName.setText("@" + tweet.getUser().getScreenName());
         tvRelativeTime.setText(getRelativeTimeAgo(tweet.getCreatedAt()));
+
+        ivProfileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //tweet.user
+                Intent i = new Intent(getContext(), ProfileActivity.class);
+                i.putExtra("user", Parcels.wrap(tweet.getUser()));
+
+                v.getContext().startActivity(i);
+
+            }
+        });
 
         return convertView;
     }
@@ -66,4 +84,5 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
 
         return relativeDate;
     }
+
 }

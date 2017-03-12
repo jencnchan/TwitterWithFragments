@@ -17,8 +17,8 @@ import org.scribe.builder.api.TwitterApi;
  *   https://github.com/fernandezpablo85/scribe-java/tree/master/src/main/java/org/scribe/builder/api
  * Key and Secret are provided by the developer site for the given API i.e dev.twitter.com
  * Add methods for each relevant endpoint in the API.
- * 
- * NOTE: You may want to rename this object based on the service i.e TwitterClient or FlickrClient
+ *
+ * NOTE: May want to rename this object based on the service i.e TwitterClient or FlickrClient
  * 
  */
 public class TwitterClient extends OAuthBaseClient {
@@ -74,6 +74,33 @@ public class TwitterClient extends OAuthBaseClient {
         params.put("status", status);
 
         getClient().post(apiUrl, params, handler);
+    }
+
+    public void getMentionsTimeline(long maxId, AsyncHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("statuses/mentions_timeline.json");
+        RequestParams params = new RequestParams();
+        params.put("count", TWEETS_COUNT_ONE_TIME);
+        if (maxId > -1) {
+            params.put("max_id", maxId);
+        }
+        getClient().get(apiUrl, params, handler);
+
+    }
+
+    public void getUserTimeline(String screenName, long maxId, AsyncHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("statuses/user_timeline.json");
+        RequestParams params = new RequestParams();
+        params.put("count", TWEETS_COUNT_ONE_TIME);
+        params.put("screen_name", screenName);
+        if (maxId > -1) {
+            params.put("max_id", maxId);
+        }
+        getClient().get(apiUrl, params, handler);
+    }
+
+    public void getUserInfo(AsyncHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("account/verify_credentials.json");
+        getClient().get(apiUrl, null, handler);
     }
 
 }

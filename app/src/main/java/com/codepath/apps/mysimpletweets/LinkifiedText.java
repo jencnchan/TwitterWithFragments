@@ -18,6 +18,7 @@ public class LinkifiedText extends TextView {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+
         TextView widget = (TextView) this;
         Object text = widget.getText();
         if (text instanceof Spanned) {

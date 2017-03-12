@@ -2,6 +2,7 @@ package com.codepath.apps.mysimpletweets.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,5 +42,6 @@ public class TweetDetailActivity extends AppCompatActivity {
         tvDetailBody.setText(tweet.body);
         tvDetailRelativeTime.setText(tweet.createdAt);
         Glide.with(this).load(user.profileImageUrl).into(ivDetailProfileImage);
+
     }
 }
